@@ -1,0 +1,10 @@
+services:
+  minecraft:
+    build: ./minecraft
+    ports:
+      - "25565:25565"
+    volumes:
+      - "mc:/opt/minecraft/"
+    restart: always
+volumes:
+  mc:
