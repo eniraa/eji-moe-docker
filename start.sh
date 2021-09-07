@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for entry in `ls */docker-compose.yml`
+for entry in */docker-compose.yml
 do
-    docker-compose -f $entry up --detach
+    docker-compose -f "$entry" up --detach
 done
