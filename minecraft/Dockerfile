@@ -1,12 +1,11 @@
-FROM alpine:3.14
+FROM openjdk:17-alpine
 
 WORKDIR /opt/minecraft
 
 EXPOSE 25565
 
 # download & configure
-RUN apk add openjdk16 --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-    && wget https://ci.tivy.ca/job/Airplane-1.17/lastSuccessfulBuild/artifact/launcher-airplane.jar \
+RUN wget https://ci.tivy.ca/job/Airplane-1.17/lastSuccessfulBuild/artifact/launcher-airplane.jar \
     && java -jar launcher-airplane.jar nogui \
     && sed -i 's/false/true/g' eula.txt \
     && sed -i 's/easy/hard/' server.properties \
