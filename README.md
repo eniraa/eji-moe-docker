@@ -10,6 +10,7 @@ This requires Docker. Make sure to install it before running. On Alpine, the com
 
 ```sh
 apk add docker docker-compose
+rc-service docker start
 ```
 
 Here is everything else needed to get started:
