@@ -1,10 +1,10 @@
 services:
   airplane:
-    build: .
+    build: airplane
     ports:
       - "25565:25565"
     volumes:
-      - "data:/opt/minecraft/"
+      - "save:/opt/minecraft/"
     restart: always
 volumes:
-  data:
+  save:
