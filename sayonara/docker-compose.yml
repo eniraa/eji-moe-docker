@@ -1,6 +1,6 @@
 services:
   bot:
-    build: .
+    build: bot
     restart: always
     depends_on:
       - lavalink
