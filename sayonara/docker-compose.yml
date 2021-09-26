@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    restart: always
+    depends_on:
+      - lavalink
+  lavalink:
+    build: lavalink
+    restart: always
