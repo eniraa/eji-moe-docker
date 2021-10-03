@@ -6,14 +6,7 @@ This is not configurable, and is only public because I don't want to set up GitH
 
 ## Usage
 
-This requires Docker. Make sure to install it before running. On Alpine, the command is as follows:
-
-```sh
-apk add docker docker-compose
-rc-service docker start
-```
-
-Here is everything else needed to get started:
+Here is everything needed to get started on Alpine:
 
 ```sh
 wget https://github.com/pyxiis/eji-moe-docker/archive/refs/heads/master.zip

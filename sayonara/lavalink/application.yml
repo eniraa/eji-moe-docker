@@ -3,7 +3,7 @@ server:
   address: 0.0.0.0
 lavalink:
   server:
-    password: "youshallnotpass"
+    password: {lava_password}
     sources:
       youtube: true
       bandcamp: true
@@ -12,28 +12,9 @@ lavalink:
       vimeo: true
       http: true
       local: false
-    bufferDurationMs: 400
-    youtubePlaylistLoadLimit: 6
-    playerUpdateInterval: 5
+    bufferDurationMs: 512
+    youtubePlaylistLoadLimit: null
+    playerUpdateInterval: 4
     youtubeSearchEnabled: true
     soundcloudSearchEnabled: true
     gc-warnings: false
-
-metrics:
-  prometheus:
-    enabled: false
-    endpoint: /metrics
-
-sentry:
-  dsn: ""
-  environment: ""
-
-logging:
-  file:
-    max-history: 30
-    max-size: 1GB
-  path: /var/lavalink/logs/
-
-  level:
-    root: INFO
-    lavalink: INFO

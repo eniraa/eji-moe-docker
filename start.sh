@@ -1,6 +1,4 @@
-#!/bin/sh
+apk add docker docker-compose ruby
+rc-service docker start
 
-for entry in $(find . -name 'docker-compose.yml')
-do
-    docker-compose -f "$entry" up --detach
-done
+ruby start.rb
