@@ -11,5 +11,6 @@ Here is everything needed to get started on Alpine:
 ```sh
 wget https://github.com/pyxiis/eji-moe-docker/archive/refs/heads/master.zip
 unzip master.zip
-sh eji-moe-docker-master/start.sh
+cd eji-moe-docker-master
+sh start.sh
 ```

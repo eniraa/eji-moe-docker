@@ -6,6 +6,6 @@ apps.each { |dir|
     begin
         require_relative "#{dir}/up"
     rescue LoadError
-        `docker compose -f #{dir}/docker-compose.yml up --detach`
+        `docker-compose -f #{dir}/docker-compose.yml up --detach`
     end
 }
