@@ -2,8 +2,8 @@ version: "3"
 services:
   synapse:
     build: synapse
-    # ports:
-      # - "8008:8008"
+    ports:
+      - "8008:8008"
     volumes:
       - "media:/opt/synapse/media_store"
     restart: always
