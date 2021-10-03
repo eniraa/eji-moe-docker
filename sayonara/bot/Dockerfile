@@ -4,8 +4,7 @@ WORKDIR /opt
 
 RUN apk add musl-dev git --no-cache && \
     git clone https://github.com/eniraa/sayonara.git && \
-    cd sayonara && \
-    cargo build --release
+    cargo build --release --manifest-path sayonara/Cargo.toml
 
 FROM alpine:3.14 AS runtime
 
