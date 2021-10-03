@@ -8,10 +8,16 @@ RUN apk add musl-dev git --no-cache && \
 
 FROM alpine:3.14 AS runtime
 
-ADD https://raw.githubusercontent.com/eficode/wait-for/master/wait-for wait.sh
-COPY --from=builder /opt/sayonara/target/release/sayonara /usr/local/bin
+WORKDIR /opt/sayonara
+
+COPY --from=builder /opt/sayonara/target/release/sayonara .
 ADD https://raw.githubusercontent.com/eficode/wait-for/master/wait-for wait.sh
 
 COPY .env .
 
-ENTRYPOINT ["sh", "wait.sh", "lavalink:2333", "--", "/usr/local/bin/sayonara"]
+RUN adduser -h /opt/sayonara -s /bin/false -D -H sayonara && \
+    chown sayonara -R /opt/sayonara
+
+USER sayonara
+
+ENTRYPOINT ["sh", "wait.sh", "lavalink:2333", "--", "/opt/sayonara/sayonara"]
