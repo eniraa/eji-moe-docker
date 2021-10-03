@@ -1,14 +1,11 @@
 require 'yaml'
-require 'pathname'
 
-cfg = YAML.load_file('apps.yml')
+apps = YAML.load_file('apps.yml')["load"]
 
-dirs = Pathname.new(".").children.select { |c| c.directory? }.select { |c| cfg["load"].any? { |re| c.basename.to_s.match(re) } }
-
-dirs.each { |dir|
+apps.each { |dir|
     begin
-        require_relative "#{dir.basename.to_s}/up"
+        require_relative "#{dir}/up"
     rescue LoadError
-        `docker compose -f #{dir.basename.to_s}/docker-compose.yml up --detach`
+        `docker compose -f #{dir}/docker-compose.yml up --detach`
     end
 }

@@ -1,0 +1,32 @@
+server_name: "eji.moe"
+pid_file: /opt/synapse/homeserver.pid
+presence:
+  # enabled: false
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    bind_addresses: ['::1', '127.0.0.1']
+    resources:
+      - names: [client, federation]
+        compress: false
+database:
+  name: psycopg2
+  txn_limit: 0
+  args:
+    user: synapse
+    password: {pg_password}
+    database: synapse
+    host: postgres
+    port: 5432
+    cp_min: 5
+    cp_max: 10
+media_store_path: "/opt/synapse/media_store"
+max_upload_size: 64M
+enable_registration: false
+report_stats: false
+signing_key_path: "/opt/synapse/eji.moe.signing.key"
+trusted_key_servers:
+  - server_name: "matrix.org"
+suppress_key_server_warning: true

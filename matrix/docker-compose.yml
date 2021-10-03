@@ -1,0 +1,21 @@
+version: "3"
+services:
+  synapse:
+    build: synapse
+    # ports:
+      # - "8008:8008"
+    volumes:
+      - "media:/opt/synapse/media_store"
+    restart: always
+    depends_on:
+      - postgres
+  postgres:
+    build: postgres
+    volumes:
+      - "data:/var/lib/postgresql/data"
+    restart: always
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+volumes:
+  data:
+  media:
