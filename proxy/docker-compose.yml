@@ -4,4 +4,4 @@ services:
     build: nginx
     network_mode: host
     volumes:
-      /etc/letsencrypt/live:/etc/letsencrypt/live:ro
+      - /etc/letsencrypt/live:/etc/letsencrypt/live:ro
