@@ -6,7 +6,6 @@ EXPOSE 80
 EXPOSE 443
 
 COPY config /etc/nginx/
-COPY letsencrypt /var/www/_letsencrypt
 
-RUN chown nginx /var/www/_letsencrypt && \
-    nginx -t && rc-service nginx start
+# RUN nginx -t && rc-service nginx start
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
