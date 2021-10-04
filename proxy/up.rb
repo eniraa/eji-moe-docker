@@ -1,7 +1,7 @@
 # create certificates
 `mkdir -p proxy/nginx/letsencrypt`
 `apk add certbot`
-`certbot certonly --standalone -d eji.moe --email info@eji.moe -w proxy/nginx/letsencrypt -n --agree-tos --force-renewal`
+`certbot certonly --standalone -d eji.moe --email info@eji.moe -w /var/www/_letsencrypt -n --agree-tos --force-renewal`
 `echo -e '#!/bin/sh\nnginx -t && rc-service nginx reload' | sudo tee /etc/letsencrypt/renewal-hooks/post/nginx-reload.sh`
 `chmod a+x /etc/letsencrypt/renewal-hooks/post/nginx-reload.sh`
 
